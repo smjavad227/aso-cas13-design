@@ -15,12 +15,22 @@ pip install -r requirements.txt
 - BLAST+
 - BEDTools
 - ViennaRNA (RNAfold)
-## Reference annotation
-To fetch the required Ensembl GRCh38 release 109 GTF file, run:
+## Reference Data
+Large reference files (e.g. GRCh38 genome FASTA and GTF annotations) are **not included in this repository** due to GitHub file size limits.  
+Please download them separately from official sources:
+
+- [GENCODE v43 annotation (GTF)](https://www.gencodegenes.org/human/)
+- [Ensembl GRCh38 genome FASTA](https://ftp.ensembl.org/pub/release-109/fasta/homo_sapiens/dna/)
+- [Ensembl GRCh38 release 109 GTF](https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/)
+
+After downloading, place them in the `inputs/reference/` directory before running the pipeline.
+
+You can also use the helper script:
+
 ```bash
 bash scripts/download_reference.sh
 ```
-##How to Run
+## How to Run
 Run the scripts in order:
 python scripts/00_audit_inputs.py
 python scripts/01_locus_windows.py
