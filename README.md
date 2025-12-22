@@ -15,7 +15,12 @@ pip install -r requirements.txt
 - BLAST+
 - BEDTools
 - ViennaRNA (RNAfold)
-## How to Run
+## Reference annotation
+To fetch the required Ensembl GRCh38 release 109 GTF file, run:
+```bash
+bash scripts/download_reference.sh
+```
+##How to Run
 Run the scripts in order:
 python scripts/00_audit_inputs.py
 python scripts/01_locus_windows.py
