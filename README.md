@@ -10,7 +10,14 @@ Clone the repository and install dependencies:
 git clone https://github.com/smjavad227/aso-cas13-design.git
 cd aso-cas13-design
 pip install -r requirements.txt
- ```
+```
+## Requirements
+- Python ≥ 3.9
+- Core libraries: numpy, pandas, biopython, matplotlib
+- External tools (install separately):
+  - BLAST+
+  - BEDTools
+  - ViennaRNA (RNAfold)
 ## External tools required (install separately):
 - BLAST+
 - BEDTools
@@ -30,6 +37,11 @@ You can also use the helper script:
 ```bash
 bash scripts/download_reference.sh
 ```
+## Folder Structure
+- `inputs/reference/` → reference genome and annotation files
+- `outputs/results/` → main pipeline outputs for manuscript use
+- `outputs/test_results/` → smoke tests and debugging outputs
+- `scripts/` → Python workflow scripts
 ## How to Run
 Run the scripts in order:
 python scripts/00_audit_inputs.py
@@ -51,6 +63,17 @@ python scripts/13_visualize_integrated.py
 ## Utility scripts:
 python scripts/check_data_files.py
 python scripts/check_inputs_reference.py
+## Example Run (Smoke Test)
+To verify scripts work correctly without large reference data, run a test BLAST:
+
+```bash
+makeblastdb -in outputs/test_results/test_db.fa -dbtype nucl -out outputs/test_results/test_db
+
+blastn -task blastn-short \
+       -query outputs/test_results/ASO_candidates_test.fasta \
+       -db outputs/test_results/test_db \
+       -out outputs/test_results/ASO_blast_test.tsv \
+       -outfmt 6 -dust no -soft_masking false
 ## Outputs
 Candidate tables (ASO and Cas13 designs)
 Summary statistics
