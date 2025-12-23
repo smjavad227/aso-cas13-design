@@ -1,0 +1,10 @@
+# Initial Input Files (8) for ASO-Cas13 Pipeline
+
+1. inputs/reference/GRCh38.fa                  ← Reference genome FASTA (Homo sapiens, GRCh38)
+2. inputs/reference/DMPK_gene.fa               ← Separate FASTA file for DMPK (Gene ID:1760)
+3. inputs/reference/gencode.v43.annotation.gtf ← Transcript annotation (GENCODE v43)
+4. inputs/reference/ensembl_release109.gtf     ← Transcript annotation (Ensembl release 109, includes DMPK)
+5. inputs/ASO_candidates.tsv                   ← Initial ASO candidate table
+6. inputs/Cas13_guides.tsv                     ← Initial Cas13 guide candidate table
+7. inputs/regions.bed                          ← Genomic regions (including CTG repeat locus in DMPK)
+8. inputs/test/ASO_candidates_test.fasta       ← Synthetic/test sequences
